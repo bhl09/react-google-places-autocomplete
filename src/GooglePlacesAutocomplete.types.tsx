@@ -29,4 +29,11 @@ export default interface GooglePlacesAutocompleteProps {
   onLoadFailed?: (error: Error) => void;
   selectProps?: Props<OptionTypeBase>;
   withSessionToken?: boolean;
+  types?: string[];
+  enableResultLog?: boolean;
+}
+
+export interface GetDetailsRequest {
+  placeId: string;
+  fields?: string[];
 }

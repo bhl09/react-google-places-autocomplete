@@ -38,3 +38,5 @@ build
 # Ignore vim files
 *.swp
 *~
+
+package-lock.json

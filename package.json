@@ -1,6 +1,6 @@
 {
-  "name": "react-google-places-autocomplete",
-  "version": "3.3.2",
+  "name": "@bhl09/react-google-places-autocomplete",
+  "version": "1.0.0",
   "description": "Google places autocomplete input for ReactJS.",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -16,14 +16,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tintef/react-google-places-autocomplete.git"
+    "url": "git+https://github.com/bhl09/react-google-places-autocomplete.git"
   },
   "author": "Nicolás Tinte",
+  "contributors": [
+    "Brett"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Tintef/react-google-places-autocomplete/issues"
+    "url": "https://github.com/bhl09/react-google-places-autocomplete/issues"
   },
-  "homepage": "https://github.com/Tintef/react-google-places-autocomplete#readme",
+  "homepage": "https://github.com/bhl09/react-google-places-autocomplete#readme",
   "keywords": [
     "react",
     "google-places",

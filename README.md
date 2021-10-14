@@ -1,41 +1,56 @@
-<p align="center">
-  <a href="https://tintef.github.io/react-google-places-autocomplete" target="_blank">
-    <img width="250"src="https://raw.githubusercontent.com/tintef/react-google-places-autocomplete/master/docs/static/img/logo.svg">
-  </a>
-</p>
 
-<p align="center">
-  <a href="https://www.npmjs.com/package/react-google-places-autocomplete">
-    <img src="https://img.shields.io/npm/v/react-google-places-autocomplete.svg"/>
-    <img src="https://img.shields.io/npm/dm/react-google-places-autocomplete.svg"/>
-  </a>
-  <a href="https://travis-ci.org/tintef/react-google-places-autocomplete">
-    <img src="https://www.travis-ci.com/Tintef/react-google-places-autocomplete.svg?branch=master" />
-  </a>
-  <a href="https://packagequality.com/#?package=react-google-places-autocomplete">
-    <img src="https://npm.packagequality.com/shield/react-google-places-autocomplete.svg"/>
-  </a>
-  <a href="https://www.npmjs.com/package/react-google-places-autocomplete">
-    <img src="https://img.shields.io/npm/l/react-google-places-autocomplete.svg" alt="License">
-  </a>
-</p>
+# React Google Places Text Search
 
-
-# React Google Places Autocomplete
-
-React component for easily use Google Places Autocomplete
-
+A Fork from [tintef/react-google-places-autocomplete](https://github.com/tintef/react-google-places-autocomplete), enhanced to filter by types with an extra feature, ```GooglePlacesGetDetails```.
 
 ## Getting started
 
 Install the latest version:
+
 ```sh
-npm install --save react-google-places-autocomplete
+npm install --save @bhl09/react-google-places-text-search
   or
-yarn add react-google-places-autocomplete
+yarn add @bhl09/react-google-places-text-search
 ```
 
-Use the component!
+## Autocomplete with type filtering
+
+```js
+import React from 'react';
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+
+const Component = () => (
+  <div>
+    <GooglePlacesAutocomplete
+      apiKey="****"
+      types={['gas_station','supermarket','home_goods_store']}
+      enableResultLog={true} // Enabling this will log the results to console
+    />
+  </div>
+);
+
+export default Component;
+```
+
+## Get details
+
+```js
+import React from 'react';
+import { GooglePlacesGetDetails } from 'react-google-places-autocomplete';
+
+const Component = () => {
+  const getDetails = async () => {
+    await GooglePlacesGetDetails(apiKey, placeId, (result) => {
+      console.log(result);
+    });
+  }
+};
+
+export default Component;
+```
+
+## Original
+
 ```js
 import React from 'react';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';

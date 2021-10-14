@@ -11,3 +11,5 @@ export {
   geocodeByPlaceId,
 };
 export default GooglePlacesAutocomplete;
+
+export { GooglePlacesGetDetails } from './GooglePlacesGetDetails'

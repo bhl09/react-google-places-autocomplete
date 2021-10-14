@@ -18,6 +18,8 @@ const GooglePlacesAutocomplete: React.ForwardRefRenderFunction<GooglePlacesAutoc
   selectProps = {},
   onLoadFailed = console.error,
   withSessionToken = false,
+  types = [],
+  enableResultLog = false,
 } : GooglePlacesAutocompleteProps, ref) : React.ReactElement => {
   const [placesService, setPlacesService] = useState<google.maps.places.AutocompleteService | undefined>(undefined);
   const [sessionToken, setSessionToken] = useState<google.maps.places.AutocompleteSessionToken | undefined>(undefined);
@@ -33,7 +35,16 @@ const GooglePlacesAutocomplete: React.ForwardRefRenderFunction<GooglePlacesAutoc
         value,
         withSessionToken && sessionToken,
       ), (suggestions) => {
-        cb((suggestions || []).map(suggestion => ({ label: suggestion.description, value: suggestion })));
+        let results: any;
+        if (types.length > 0) {
+          results = (suggestions || []).filter(suggestion => suggestion.types.find(type => types.includes(type))).map(suggestion => ({ label: suggestion.description, value: suggestion }));
+        }
+        else {
+          results = (suggestions || []).map(suggestion => ({ label: suggestion.description, value: suggestion }));
+        }
+
+        if (enableResultLog) console.log('Results: ', results);
+        cb(results);
       },
     );
   }, debounce);
